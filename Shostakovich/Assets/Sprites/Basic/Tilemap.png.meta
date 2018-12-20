@@ -7,6 +7,8 @@ TextureImporter:
     21300004: Tilemap_2
     21300006: Tilemap_3
     21300008: Tilemap_4
+    21300010: Tilemap_5
+    21300012: Tilemap_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -125,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1e1481c2fb143742a944ac9a4430dac
+      spriteID: 4e2860b76eaf51e4f864bf2ca03348d6
       vertices: []
       indices: 
       edges: []
@@ -145,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae2e19d62d3097344a87eafee197e65e
+      spriteID: c799693eb0ff77b41a2e154fb72bb851
       vertices: []
       indices: 
       edges: []
@@ -165,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e9af11899c9e184a9dca5b1699d2359
+      spriteID: 5299544b62f3a2e479cb21a255472d15
       vertices: []
       indices: 
       edges: []
@@ -185,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0bd26455ad36b241bc2e34761bc2797
+      spriteID: 98c6ce190a6fc76428bdb86f1b3f08a2
       vertices: []
       indices: 
       edges: []
@@ -205,7 +207,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31ad45f00ddda1f4f86fad4d96918a3b
+      spriteID: 12007b8e6adee5640bbfa5d430f8e628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8924a12e6f9c3014dab7046ab42388b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e964a438c68450f4ab207adb4928e213
       vertices: []
       indices: 
       edges: []
