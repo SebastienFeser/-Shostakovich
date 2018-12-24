@@ -1,16 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerTest : MonoBehaviour
 {
+    public enum Orientation
+    {
+        NORTH,
+        SOUTH,
+        RIGHT,
+        LEFT
+    }
+
+
     [SerializeField] private float speed;
-    
+
+    private Orientation currentOrientation;
+    public Orientation CurrentOrientation => currentOrientation;
+
+    [SerializeField] private Detector detector;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        detector.GetComponentInChildren<Detector>();
     }
 
     // Update is called once per frame
@@ -18,31 +32,32 @@ public class PlayerTest : MonoBehaviour
     {
         if (Input.GetButtonDown("Up"))
         {
-            transform.position = Vector3.Lerp(transform.position,
-                new Vector2(transform.position.x, transform.position.y + 1), speed);
-            Debug.Log("Up");
+            currentOrientation = Orientation.NORTH;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (!detector.DetectWall())
+            transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y + 1), speed);
         }
         else if (Input.GetButtonDown("Down"))
         {
-            transform.position = Vector3.Lerp(transform.position,
-                new Vector2(transform.position.x, transform.position.y - 1), speed);
-
-            Debug.Log("Down");
-
+            currentOrientation = Orientation.SOUTH;
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+            if (!detector.DetectWall())
+                transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y - 1), speed);
         }
         else if (Input.GetButtonDown("Right"))
         {
-            transform.position = Vector3.Lerp(transform.position,
-                new Vector2(transform.position.x + 1, transform.position.y), speed);
-            Debug.Log("Right");
-
+            currentOrientation = Orientation.RIGHT;
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+            if (!detector.DetectWall())
+                transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x + 1, transform.position.y), speed);
         }
         else if (Input.GetButtonDown("Left"))
         {
-            transform.position = Vector3.Lerp(transform.position,
-                new Vector2(transform.position.x - 1, transform.position.y), speed);
-            Debug.Log("Left");
-
+            currentOrientation = Orientation.LEFT;
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+            if (!detector.DetectWall())
+                transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x - 1, transform.position.y), speed);
         }
+        
     }
 }

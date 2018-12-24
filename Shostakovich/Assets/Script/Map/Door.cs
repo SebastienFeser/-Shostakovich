@@ -19,13 +19,42 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (MapManager.Instance.ExteriorPosition)
+        if (other.GetComponent<PlayerTest>())
         {
-            MapManager.Instance.TransitionInterior(room);
-        }
-        else
-        {
-            MapManager.Instance.TransitionExterior();
+            if (MapManager.Instance.ExteriorPosition)
+            {
+                MapManager.Instance.TransitionInterior(room);
+
+            }
+            else
+            {
+                MapManager.Instance.TransitionExterior();
+
+            }
+
+            switch (other.GetComponent<PlayerTest>().CurrentOrientation)
+            {
+                case PlayerTest.Orientation.NORTH:
+                {
+                    other.transform.position = new Vector3(transform.position.x, transform.position.y + 1);
+                    break;
+                }
+                case PlayerTest.Orientation.RIGHT:
+                {
+                    other.transform.position = new Vector3(transform.position.x + 1, transform.position.y);
+                    break;
+                }
+                case PlayerTest.Orientation.SOUTH:
+                {
+                    other.transform.position = new Vector3(transform.position.x, transform.position.y - 1);
+                    break;
+                }
+                case PlayerTest.Orientation.LEFT:
+                {
+                    other.transform.position = new Vector3(transform.position.x - 1, transform.position.y);
+                    break;
+                }
+            }
         }
     }
 }
