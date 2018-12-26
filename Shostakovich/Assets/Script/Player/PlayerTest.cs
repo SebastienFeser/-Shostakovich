@@ -58,6 +58,15 @@ public class PlayerTest : MonoBehaviour
             if (!detector.DetectWall())
                 transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x - 1, transform.position.y), speed);
         }
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (detector.DetectInteract())
+            {
+                detector.DetectInteract().ShowDialog();
+                Debug.Log("Show");
+            }
+        }
         
     }
 }
