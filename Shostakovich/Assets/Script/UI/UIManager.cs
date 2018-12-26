@@ -46,7 +46,6 @@ public class UIManager : MonoBehaviour
             case (DialogState.FINISH):
             {
                 dialogWindow.SetActive(false);
-                Debug.Log("yesn't");
                 currentDialogState = DialogState.NONE;
                 scriptPlayer.enabled = true;
                 break;

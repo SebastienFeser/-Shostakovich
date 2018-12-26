@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 172342643}
   - component: {fileID: 172342645}
   - component: {fileID: 172342644}
+  - component: {fileID: 172342646}
   m_Layer: 9
   m_Name: DoorRoom3
   m_TagString: Untagged
@@ -489,6 +490,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 1604176058}
+--- !u!114 &172342646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172342642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fcfc88c2c90aa44a9b4f2f74e501f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactive: 1
+  wall: 1
+  dialog: {fileID: 11400000, guid: 5ebfde5e01734e04e92c16e44911d45d, type: 2}
 --- !u!1 &174465166 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8367237404178915187, guid: 914a7264d3ffb3e48b2d7339baa8a9e7,
@@ -547,7 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactive: 1
   wall: 1
-  dialog: {fileID: 0}
+  dialog: {fileID: 11400000, guid: f08674b4714d5204a8b5226d8fc92dc1, type: 2}
 --- !u!61 &194465634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2834,7 +2850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactive: 1
   wall: 1
-  dialog: {fileID: 11400000, guid: f08674b4714d5204a8b5226d8fc92dc1, type: 2}
+  dialog: {fileID: 11400000, guid: 1be9f0a3c67a996419d1db626aa0f8ea, type: 2}
 --- !u!61 &951409087
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2980,7 +2996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactive: 1
   wall: 1
-  dialog: {fileID: 0}
+  dialog: {fileID: 11400000, guid: f08674b4714d5204a8b5226d8fc92dc1, type: 2}
 --- !u!61 &960925542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3357,7 +3373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactive: 1
   wall: 1
-  dialog: {fileID: 0}
+  dialog: {fileID: 11400000, guid: f08674b4714d5204a8b5226d8fc92dc1, type: 2}
 --- !u!61 &1284967854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3528,7 +3544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactive: 1
   wall: 1
-  dialog: {fileID: 0}
+  dialog: {fileID: 11400000, guid: f08674b4714d5204a8b5226d8fc92dc1, type: 2}
 --- !u!61 &1383265520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4974,7 +4990,7 @@ GameObject:
   - component: {fileID: 1767035776}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5103,6 +5119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   detector: {fileID: 161860270}
+  key: 0
 --- !u!1 &1772874031
 GameObject:
   m_ObjectHideFlags: 0

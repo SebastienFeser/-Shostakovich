@@ -21,6 +21,13 @@ public class PlayerTest : MonoBehaviour
 
     [SerializeField] private Detector detector;
 
+    [SerializeField] private bool key;
+    public bool Key
+    {
+        get { return key; }
+        set { key = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +71,6 @@ public class PlayerTest : MonoBehaviour
             if (detector.DetectInteract())
             {
                 detector.DetectInteract().ShowDialog();
-                Debug.Log("Show");
             }
         }
         
