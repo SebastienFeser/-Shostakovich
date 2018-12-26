@@ -21,6 +21,13 @@ public class PlayerTest : MonoBehaviour
 
     [SerializeField] private Detector detector;
 
+    [SerializeField] private bool key;
+    public bool Key
+    {
+        get { return key; }
+        set { key = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +64,14 @@ public class PlayerTest : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 90);
             if (!detector.DetectWall())
                 transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x - 1, transform.position.y), speed);
+        }
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (detector.DetectInteract())
+            {
+                detector.DetectInteract().ShowDialog();
+            }
         }
         
     }
