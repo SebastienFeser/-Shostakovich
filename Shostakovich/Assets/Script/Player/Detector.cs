@@ -30,15 +30,15 @@ public class Detector : MonoBehaviour
 
         if (collider)
         {
-
-            if (collider.GetComponent<Door>() && GetComponentInParent<PlayerTest>().Key && collider.GetComponent<FixObject>().Interactive)
-            {
-                collider.GetComponent<FixObject>().Wall = false;
-                collider.GetComponent<FixObject>().Interactive = false;
-                GetComponent<BoxCollider2D>().isTrigger = true;
-            }
             if (collider.GetComponent<FixObject>())
             {
+
+                if (collider.GetComponent<Door>() && GetComponentInParent<PlayerTest>().Key && collider.GetComponent<FixObject>().Interactive)
+                {
+                    collider.GetComponent<FixObject>().Wall = false;
+                    collider.GetComponent<FixObject>().Interactive = false;
+                    GetComponent<BoxCollider2D>().isTrigger = true;
+                }
                 return collider.GetComponent<FixObject>().Wall;
             }
 
