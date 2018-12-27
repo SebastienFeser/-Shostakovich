@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
   m_Name: Concierge
   m_EditorClassIdentifier: 
-  dialog: "Bonjour, Je suis le concierge :) Il y a une cl\xE9 dans la niche, n'h\xE9sitez
-    pas \xE0 la prendre."
+  dialog:
+  - Bonjour, Je suis le concierge. Je vais te donner des indices pour tes recherches.
+  - "ll y a une cl\xE9 dans la niche, va voir!"
+  containsKey: 0

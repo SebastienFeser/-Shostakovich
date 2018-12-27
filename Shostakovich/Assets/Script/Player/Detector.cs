@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
-
-    private GameObject detectedGameObject;
-
-
     private BoxCollider2D box;
     [SerializeField] private LayerMask raycastLayerMask;
 
@@ -47,7 +43,7 @@ public class Detector : MonoBehaviour
     }
     public SO_Interaction DetectInteract()
     {
-
+        Debug.Log("Interact");
         Collider2D collider = Physics2D.OverlapBox((Vector2)transform.position + box.offset, box.size, 0, raycastLayerMask);
 
         if (collider)
@@ -56,6 +52,7 @@ public class Detector : MonoBehaviour
             {
                 if (collider.GetComponent<FixObject>().Interactive)
                 {
+                    Debug.Log("log");
                     return collider.GetComponent<FixObject>().Dialog;
                 }
             }
