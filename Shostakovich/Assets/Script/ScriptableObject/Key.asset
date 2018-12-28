@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
   m_Name: Key
   m_EditorClassIdentifier: 
-  dialog: "Vous trouvez une cl\xE9."
-  alternativeDialog: 
+  dialog:
+  - Vous fouyez la niche...
+  - "Il y a une cl\xE9 \xE0 l'int\xE9rieur."
   containsKey: 1

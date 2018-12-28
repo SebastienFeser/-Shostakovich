@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
   m_Name: Nothing
   m_EditorClassIdentifier: 
-  dialog: Il n'y a rien ici.
+  dialog:
+  - Il n'y a rien ici.
+  - Cherhez ailleurs...
+  containsKey: 0

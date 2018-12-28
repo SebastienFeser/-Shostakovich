@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Dialog")]
 public class SO_Interaction : ScriptableObject
 {
-    [SerializeField] private string dialog;
+    [SerializeField] private string[] dialog;
     [SerializeField] private bool containsKey;
     
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class SO_Interaction : ScriptableObject
     {
         if (UIManager.Instance.CurrentDialogState == UIManager.DialogState.NONE)
         { 
+            Debug.Log("none");
             UIManager.Instance.ShowDialog(dialog);
         }
 

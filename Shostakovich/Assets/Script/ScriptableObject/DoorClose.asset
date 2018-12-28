@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
   m_Name: DoorClose
   m_EditorClassIdentifier: 
-  dialog: "La porte est ferm\xE9e \xE0 cl\xE9."
-  alternativeDialog: "La cl\xE9 ouvre la porte."
+  dialog:
+  - "La porte est ferm\xE9..."
   containsKey: 0
