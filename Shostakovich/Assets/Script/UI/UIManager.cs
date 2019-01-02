@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
         if (Input.GetButtonDown("Interact") && !scriptPlayer.enabled)
         {
             InteractionTest();
-            Debug.Log("fuck");
+            Debug.Log(scriptPlayer.enabled);
         }
     }
 
