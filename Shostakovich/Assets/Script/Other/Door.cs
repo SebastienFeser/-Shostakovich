@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : FixObject
 {
     [SerializeField] private GameObject room;
+    [SerializeField] private string keyName;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +61,7 @@ public class Door : FixObject
 
     public override void Interaction()
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTest>().Key)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTest>().SearchInInventory(keyName))
         {
             Dialog.ShowAlternativeDialog();
             Interactive = false;
