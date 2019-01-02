@@ -33,4 +33,9 @@ public class FixObject : MonoBehaviour
     {
         
     }
+
+    public virtual void Interaction()
+    {
+        dialog.ShowDialog();
+    }
 }

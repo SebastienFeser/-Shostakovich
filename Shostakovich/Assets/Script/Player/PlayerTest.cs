@@ -70,7 +70,7 @@ public class PlayerTest : MonoBehaviour
         {
             if (detector.DetectInteract())
             {
-                detector.DetectInteract().ShowDialog();
+                detector.DetectInteract().Interaction();
             }
         }
         

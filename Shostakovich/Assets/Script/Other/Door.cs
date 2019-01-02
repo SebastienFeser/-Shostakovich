@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : FixObject
 {
     [SerializeField] private GameObject room;
     // Start is called before the first frame update
@@ -55,6 +55,20 @@ public class Door : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+
+    public override void Interaction()
+    {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTest>().Key)
+        {
+            Dialog.ShowAlternativeDialog();
+            Interactive = false;
+            Wall = false;
+        }
+        else
+        {
+            Dialog.ShowDialog();
         }
     }
 }

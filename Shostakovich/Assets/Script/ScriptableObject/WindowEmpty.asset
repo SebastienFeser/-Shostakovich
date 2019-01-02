@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
-  m_Name: DoorClose
+  m_Name: WindowEmpty
   m_EditorClassIdentifier: 
   dialog:
-  - "La porte est ferm\xE9..."
-  alternativeDialog:
-  - La porte s'ouvre.
+  - Il n'y a personne...
+  alternativeDialog: []
