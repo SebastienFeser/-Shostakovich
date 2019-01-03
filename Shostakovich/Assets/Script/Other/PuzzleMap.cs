@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /*
 Axe X entre 5 et -5
@@ -10,23 +11,29 @@ Déplacement de 0.5
 
 public class PuzzleMap : MonoBehaviour
 {
-    
+
     [SerializeField] GameObject axeX;
     [SerializeField] GameObject axeY;
+    [SerializeField] float xWinPosition = -4.5f;
+    [SerializeField] float yWinPosition = 0f;
+    [SerializeField] TextMeshProUGUI victoryText;
 
     bool buttonHorizontal = false;
     bool buttonVertical = false;
+    bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        victoryText.color = new Color(1, 1, 1, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0 && !buttonHorizontal)
+
+        //Tile movement X
+        if (Input.GetAxisRaw("Horizontal") > 0 && !buttonHorizontal && canMove)
         {
             buttonHorizontal = true;
             if (axeX.transform.position.x < 5)
@@ -35,7 +42,7 @@ public class PuzzleMap : MonoBehaviour
             }
         }
 
-        if (Input.GetAxisRaw("Horizontal") < 0 && !buttonHorizontal)
+        if (Input.GetAxisRaw("Horizontal") < 0 && !buttonHorizontal && canMove)
         {
             buttonHorizontal = true;
             if (axeX.transform.position.x > -5)
@@ -44,14 +51,14 @@ public class PuzzleMap : MonoBehaviour
             }
         }
 
-        if (Input.GetAxisRaw("Horizontal") == 0 && buttonHorizontal)
+        if (Input.GetAxisRaw("Horizontal") == 0 && buttonHorizontal && canMove)
         {
             buttonHorizontal = false;
         }
 
 
-
-        if (Input.GetAxisRaw("Vertical") > 0 && !buttonVertical)
+        //Tile movement Y
+        if (Input.GetAxisRaw("Vertical") > 0 && !buttonVertical && canMove)
         {
             buttonVertical = true;
             if (axeY.transform.position.y < 3)
@@ -60,7 +67,7 @@ public class PuzzleMap : MonoBehaviour
             }
         }
 
-        if (Input.GetAxisRaw("Vertical") < 0 && !buttonVertical)
+        if (Input.GetAxisRaw("Vertical") < 0 && !buttonVertical && canMove)
         {
             buttonVertical = true;
             if (axeY.transform.position.y > -3)
@@ -69,9 +76,28 @@ public class PuzzleMap : MonoBehaviour
             }
         }
 
-        if (Input.GetAxisRaw("Vertical") == 0 && buttonVertical)
+        if (Input.GetAxisRaw("Vertical") == 0 && buttonVertical && canMove)
         {
             buttonVertical = false;
         }
+
+        if (axeX.transform.position.x == xWinPosition && axeY.transform.position.y == yWinPosition)
+        {
+            canMove = false;
+            StartCoroutine(WinText());
+        }
+
+
+    }
+
+    IEnumerator WinText()
+    {
+        for (float i = 0; i < 1; i += 0.02f)
+        {
+            victoryText.color = new Color(1, 1, 1, 0 + i);
+            yield return new WaitForSeconds(0.01f);
+        }
+        yield return new WaitForSeconds(2f);
+        Debug.Log("Load Scene");
     }
 }
