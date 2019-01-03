@@ -28,6 +28,13 @@ public class PlayerTest : MonoBehaviour
         set { key = value; }
     }
 
+    private List<string> inventory = new List<string>();
+    public List<string> Inventory
+    {
+        get { return inventory; }
+        set { inventory = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,5 +81,22 @@ public class PlayerTest : MonoBehaviour
             }
         }
         
+    }
+
+    public bool SearchInInventory(string nameObject)
+    {
+        return inventory.Contains(nameObject);
+    }
+
+    public void NewInventory(string nameObject)
+    {
+        if (!inventory.Contains(nameObject))
+        {
+            inventory.Add(nameObject);
+        }
+        else
+        {
+            Debug.Log("error object already exist");
+        }
     }
 }

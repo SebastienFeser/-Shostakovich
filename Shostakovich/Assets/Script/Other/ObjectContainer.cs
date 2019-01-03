@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyContainer : FixObject
+public class ObjectContainer : FixObject
 {
 
-    [SerializeField] private bool containsKey;
-    
+    [SerializeField] private bool containsObject;
+    [SerializeField] private string objectName;
     
 // Start is called before the first frame update
 void Start()
@@ -22,11 +22,11 @@ void Start()
 
     public override void Interaction()
     {
-        if (containsKey == true)
+        if (containsObject == true)
         {
             Dialog.ShowDialog();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTest>().Key = true;
-            containsKey = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTest>().NewInventory(objectName);
+            containsObject = false;
         }
         else 
         {
