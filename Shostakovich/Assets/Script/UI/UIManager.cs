@@ -23,6 +23,13 @@ public class UIManager : MonoBehaviour
     private int indexDialog = 0;
     private string[] currentDialog; 
     [SerializeField] private PlayerTest scriptPlayer;
+    private List<string[]> waitingDialogList = new List<string[]>();
+    public List<string[]> WaitingDialogList
+    {
+        get { return waitingDialogList; }
+        set { waitingDialogList = value; }
+    }
+
     void Start()
     {
         instance = this;
@@ -37,7 +44,6 @@ public class UIManager : MonoBehaviour
         if (Input.GetButtonDown("Interact") && !scriptPlayer.enabled)
         {
             InteractionTest();
-            Debug.Log(scriptPlayer.enabled);
         }
     }
 
@@ -52,11 +58,17 @@ public class UIManager : MonoBehaviour
             }
             case (DialogState.FINISH):
             {
-                Debug.Log(false);
                 dialogWindow.SetActive(false);
                 currentDialogState = DialogState.NONE;
                 scriptPlayer.enabled = true;
+                if (waitingDialogList.Count > 0)
+                {
+                    ShowDialog(waitingDialogList[0]);
+                    waitingDialogList.RemoveAt(0);
+                }
+
                 break;
+
             }
         }
     }
@@ -64,7 +76,6 @@ public class UIManager : MonoBehaviour
 
     public void ShowDialog(string[] text)
     {
-        Debug.Log(true);
         scriptPlayer.enabled = false;
         dialogWindow.SetActive(true);
         dialogWindow.GetComponentInChildren<TextMeshProUGUI>().text = text[indexDialog];

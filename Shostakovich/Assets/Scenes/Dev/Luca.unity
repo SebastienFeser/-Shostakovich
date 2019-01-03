@@ -6148,6 +6148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1324729154}
+  - component: {fileID: 1324729155}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6171,6 +6172,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1324729155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324729153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd28e94c84179714c9351c774d3fc0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doveFlee: 0
 --- !u!1 &1353401245
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,8 +7748,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694619763}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -4.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2, y: -4, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1877252472}
   m_Father: {fileID: 195437838}
@@ -7750,7 +7764,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1694619763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8fcfc88c2c90aa44a9b4f2f74e501f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 39127bddfdd919d488d3dbc084501b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactive: 1
@@ -8494,7 +8508,7 @@ GameObject:
   - component: {fileID: 1784897121}
   - component: {fileID: 1784897120}
   m_Layer: 9
-  m_Name: PNJ1
+  m_Name: Caretaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8523,15 +8537,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784897118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c887c95fc1de90b48a0bbc7cdf85fcda, type: 3}
+  m_Script: {fileID: 11500000, guid: a7216f70dafed564a9b30445d7386c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactive: 1
   wall: 1
-  dialog: {fileID: 11400000, guid: 16ce4a3aee9c66f4e8e5ef3a3ae0724d, type: 2}
-  objectLookingFor: KeyRoom3
-  objectToGive: KeyRoom2
-  objectGiven: 0
+  dialog: {fileID: 0}
+  initialInteraction: {fileID: 11400000, guid: 174986050c38ad749b94afa59135b729, type: 2}
+  firstInteraction: {fileID: 11400000, guid: 04b0703a67472e24db4f8d8d95f7286c, type: 2}
+  clues:
+  - {fileID: 11400000, guid: a0af794c45f50df48bd244a24119d431, type: 2}
+  - {fileID: 11400000, guid: 5fec2806ede706740b3e7feb8e3a6eeb, type: 2}
+  - {fileID: 11400000, guid: 7499475abb69d7a4e9fbc186cfa901ba, type: 2}
+  lastInteraction: {fileID: 11400000, guid: e58170716fbbe224aabe4e5b830e8387, type: 2}
+  requiredObjects:
+  - musicSheet1
+  - musicSheet2
+  - musicSheet3
 --- !u!61 &1784897121
 BoxCollider2D:
   m_ObjectHideFlags: 0

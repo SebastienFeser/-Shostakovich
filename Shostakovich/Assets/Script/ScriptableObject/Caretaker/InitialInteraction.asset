@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
-  m_Name: Dove
+  m_Name: InitialInteraction
   m_EditorClassIdentifier: 
   dialog:
-  - Vous faites fuir les pigeons.
+  - Bienvenue, tu es la fille de Victor Knouchevitski n'est-ce pas?
+  - "Alors comme \xE7a tu recherches la partition orchestrale de la valse de jazz
+    n\xB02 de Chostakovitch?"
   alternativeDialog: []

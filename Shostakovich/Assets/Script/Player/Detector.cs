@@ -35,8 +35,7 @@ public class Detector : MonoBehaviour
         return false;
     }
     public FixObject DetectInteract()
-    {
-        Debug.Log("Interact");
+    { 
         Collider2D[] colliders = Physics2D.OverlapBoxAll((Vector2)transform.position + box.offset, box.size, 0, raycastLayerMask);
         foreach (var collider in colliders)
         {
@@ -46,7 +45,7 @@ public class Detector : MonoBehaviour
                 {
                     if (collider.GetComponent<FixObject>().Interactive)
                     {
-                        Debug.Log("log");
+
                         return collider.GetComponent<FixObject>();
                     }
                 }

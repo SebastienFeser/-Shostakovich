@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
-  m_Name: Dove
+  m_Name: SecondClue
   m_EditorClassIdentifier: 
   dialog:
-  - Vous faites fuir les pigeons.
-  alternativeDialog: []
+  - "Sinon, il semblerait que Youri L\xE9vitine poss\xE8de aussi une partie de cette
+    partition."
+  - Va lui parler, il est dans l'immeuble jaune.
+  alternativeDialog:
+  - "Va voir Youri L\xE9vitine dans l'immeuble jaune."

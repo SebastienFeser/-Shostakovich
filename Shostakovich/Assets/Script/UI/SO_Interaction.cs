@@ -24,16 +24,23 @@ public class SO_Interaction : ScriptableObject
     {
         if (UIManager.Instance.CurrentDialogState == UIManager.DialogState.NONE)
         { 
-            Debug.Log("none");
             UIManager.Instance.ShowDialog(dialog);
+        }
+        else
+        {
+            UIManager.Instance.WaitingDialogList.Add(dialog);
         }
     }
     public void ShowAlternativeDialog()
     {
         if (UIManager.Instance.CurrentDialogState == UIManager.DialogState.NONE)
         {
-            Debug.Log("none");
+
             UIManager.Instance.ShowDialog(alternativeDialog);
+        }
+        else
+        {
+            UIManager.Instance.WaitingDialogList.Add(alternativeDialog);
         }
     }
 }

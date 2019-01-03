@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
-  m_Name: Dove
+  m_Name: FirstClue
   m_EditorClassIdentifier: 
   dialog:
-  - Vous faites fuir les pigeons.
-  alternativeDialog: []
+  - "J'ai entendu dire que Fleishmann en poss\xE9dait une partie, malheureusement
+    il n'est pas l\xE0."
+  - "Mais il m'a envoy\xE9 une lettre la voici:"
+  alternativeDialog:
+  - "Va voir chez Maxime Fleischmann, je t'ai donn\xE9 sa lettre."
