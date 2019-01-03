@@ -21,6 +21,7 @@ public class PuzzleMap : MonoBehaviour
     bool buttonHorizontal = false;
     bool buttonVertical = false;
     bool canMove = true;
+    bool endstarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -81,10 +82,12 @@ public class PuzzleMap : MonoBehaviour
             buttonVertical = false;
         }
 
-        if (axeX.transform.position.x == xWinPosition && axeY.transform.position.y == yWinPosition)
+        if (axeX.transform.position.x == xWinPosition && axeY.transform.position.y == yWinPosition && !endstarted)
         {
+            //play unlock sound
             canMove = false;
             StartCoroutine(WinText());
+            endstarted = true;
         }
 
 
@@ -98,6 +101,7 @@ public class PuzzleMap : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(2f);
+        //Box opened
         Debug.Log("Load Scene");
     }
 }
