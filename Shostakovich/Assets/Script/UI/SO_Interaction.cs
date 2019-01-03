@@ -6,8 +6,8 @@ using UnityEngine;
 public class SO_Interaction : ScriptableObject
 {
     [SerializeField] private string[] dialog;
-    [SerializeField] private bool containsKey;
-    
+    [SerializeField] private string[] alternativeDialog;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +24,23 @@ public class SO_Interaction : ScriptableObject
     {
         if (UIManager.Instance.CurrentDialogState == UIManager.DialogState.NONE)
         { 
-            Debug.Log("none");
             UIManager.Instance.ShowDialog(dialog);
         }
-
-        if (containsKey == true)
+        else
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTest>().Key = true;
+            UIManager.Instance.WaitingDialogList.Add(dialog);
+        }
+    }
+    public void ShowAlternativeDialog()
+    {
+        if (UIManager.Instance.CurrentDialogState == UIManager.DialogState.NONE)
+        {
+
+            UIManager.Instance.ShowDialog(alternativeDialog);
+        }
+        else
+        {
+            UIManager.Instance.WaitingDialogList.Add(alternativeDialog);
         }
     }
 }

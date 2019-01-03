@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerTest : MonoBehaviour
 {
+    Vector3 startPos;
+    Vector3 endPos;
+    float time;
+
     public enum Orientation
     {
         NORTH,
@@ -27,6 +31,18 @@ public class PlayerTest : MonoBehaviour
         get { return key; }
         set { key = value; }
     }
+
+<<<<<<< Updated upstream
+    private List<string> inventory = new List<string>();
+    public List<string> Inventory
+    {
+        get { return inventory; }
+        set { inventory = value; }
+    }
+=======
+    bool isMoving = false;
+    bool canMove = true;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -70,9 +86,43 @@ public class PlayerTest : MonoBehaviour
         {
             if (detector.DetectInteract())
             {
-                detector.DetectInteract().ShowDialog();
+                detector.DetectInteract().Interaction();
             }
         }
+
+        
         
     }
+<<<<<<< Updated upstream
+
+    public bool SearchInInventory(string nameObject)
+    {
+        return inventory.Contains(nameObject);
+    }
+
+    public void NewInventory(string nameObject)
+    {
+        if (!inventory.Contains(nameObject))
+        {
+            inventory.Add(nameObject);
+        }
+        else
+        {
+            Debug.Log("error object already exist");
+        }
+    }
+=======
+    public IEnumerator Move(Transform entity)
+        {
+        isMoving = true;
+        startPos = entity.position;
+        time = 0;
+
+        //endPos = new Vector3(startPos.x + System.Math.Sign(input.x));
+
+
+        isMoving = false;
+            yield return 0;
+        }
+>>>>>>> Stashed changes
 }

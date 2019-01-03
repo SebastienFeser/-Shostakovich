@@ -28,32 +28,26 @@ public class Detector : MonoBehaviour
         {
             if (collider.GetComponent<FixObject>())
             {
-
-                if (collider.GetComponent<Door>() && GetComponentInParent<PlayerTest>().Key && collider.GetComponent<FixObject>().Interactive)
-                {
-                    collider.GetComponent<FixObject>().Wall = false;
-                    collider.GetComponent<FixObject>().Interactive = false;
-                    GetComponent<BoxCollider2D>().isTrigger = true;
-                }
                 return collider.GetComponent<FixObject>().Wall;
             }
 
         }
         return false;
     }
-    public SO_Interaction DetectInteract()
-    {
-        Debug.Log("Interact");
-        Collider2D collider = Physics2D.OverlapBox((Vector2)transform.position + box.offset, box.size, 0, raycastLayerMask);
-
-        if (collider)
+    public FixObject DetectInteract()
+    { 
+        Collider2D[] colliders = Physics2D.OverlapBoxAll((Vector2)transform.position + box.offset, box.size, 0, raycastLayerMask);
+        foreach (var collider in colliders)
         {
-            if (collider.GetComponent<FixObject>())
+            if (collider)
             {
-                if (collider.GetComponent<FixObject>().Interactive)
+                if (collider.GetComponent<FixObject>())
                 {
-                    Debug.Log("log");
-                    return collider.GetComponent<FixObject>().Dialog;
+                    if (collider.GetComponent<FixObject>().Interactive)
+                    {
+
+                        return collider.GetComponent<FixObject>();
+                    }
                 }
             }
         }

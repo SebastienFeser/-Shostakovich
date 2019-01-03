@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
-  m_Name: Key
+  m_Name: LastInteraction
   m_EditorClassIdentifier: 
   dialog:
-  - Vous fouyez la niche...
-  - "Il y a une cl\xE9 \xE0 l'int\xE9rieur."
-  containsKey: 1
+  - "Je vois que tu as trouv\xE9 les trois partitions... Voici la derni\xE8re partie,
+    bien jou\xE9."
+  alternativeDialog: []

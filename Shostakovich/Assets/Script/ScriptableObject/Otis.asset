@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
+  m_Name: Otis
+  m_EditorClassIdentifier: 
+  dialog:
+  - "Player : C'est une bonne situation, \xE7a, scribe ?"
+  - 'Otis : Mais, vous savez, moi je ne crois pas qu''il y ait de bonne ou de mauvaise
+    situation. '
+  - "Moi, si je devais r\xE9sumer ma vie aujourd'hui avec vous, je dirais que c'est
+    d'abord des rencontres,"
+  - "des gens qui m'ont tendu la main, peut-\xEAtre \xE0 un moment o\xF9 je ne pouvais
+    pas, o\xF9 j'\xE9tais seul chez moi."
+  - "Et c'est assez curieux de se dire que les hasards, les rencontres forgent une
+    destin\xE9e..."
+  - "Parce que quand on a le go\xFBt de la chose, quand on a le go\xFBt de la chose
+    bien faite, le beau geste,"
+  - "parfois on ne trouve pas l'interlocuteur en face, je dirais, le miroir qui vous
+    aide \xE0 avancer."
+  - "Alors ce n'est pas mon cas, comme je le disais l\xE0, puisque moi au contraire,
+    j'ai pu ; et je dis merci \xE0 la vie,"
+  - je lui dis merci, je chante la vie, je danse la vie... Je ne suis qu'amour !
+  - "Et finalement, quand beaucoup de gens aujourd'hui me disent \"Mais comment fais-tu
+    pour avoir cette humanit\xE9 ?\""
+  - "eh ben je leur r\xE9ponds tr\xE8s simplement, je leur dis que c'est ce go\xFBt
+    de l'amour,"
+  - "ce go\xFBt donc qui m'a pouss\xE9 aujourd'hui \xE0 entreprendre une construction
+    m\xE9canique,"
+  - "mais demain, qui sait, peut-\xEAtre seulement \xE0 me mettre au service de la
+    communaut\xE9, \xE0 faire le don, le don de soi..."
+  alternativeDialog: []
