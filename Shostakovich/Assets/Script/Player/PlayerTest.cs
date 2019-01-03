@@ -31,18 +31,15 @@ public class PlayerTest : MonoBehaviour
         get { return key; }
         set { key = value; }
     }
-
-<<<<<<< Updated upstream
+    
     private List<string> inventory = new List<string>();
     public List<string> Inventory
     {
         get { return inventory; }
         set { inventory = value; }
     }
-=======
     bool isMoving = false;
     bool canMove = true;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -93,7 +90,6 @@ public class PlayerTest : MonoBehaviour
         
         
     }
-<<<<<<< Updated upstream
 
     public bool SearchInInventory(string nameObject)
     {
@@ -111,7 +107,6 @@ public class PlayerTest : MonoBehaviour
             Debug.Log("error object already exist");
         }
     }
-=======
     public IEnumerator Move(Transform entity)
         {
         isMoving = true;
@@ -124,5 +119,4 @@ public class PlayerTest : MonoBehaviour
         isMoving = false;
             yield return 0;
         }
->>>>>>> Stashed changes
 }
