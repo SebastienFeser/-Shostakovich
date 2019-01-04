@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 /*
 Axe X entre 5 et -5
@@ -22,6 +23,8 @@ public class PuzzleMap : MonoBehaviour
     bool buttonVertical = false;
     bool canMove = true;
     bool endstarted = false;
+
+    [SerializeField] private string rewardObject;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +91,18 @@ public class PuzzleMap : MonoBehaviour
             canMove = false;
             StartCoroutine(WinText());
             endstarted = true;
+            if (!GameManager.Instance.Inventory.Contains(rewardObject))
+            {
+                GameManager.Instance.Inventory.Add(rewardObject);
+                GameManager.Instance.Inventory.Add("musicSheet2");
+                GameManager.Instance.Inventory.Add("musicSheet3");
+            }
+            else
+            {
+                Debug.Log("error object already exist");
+            }
+
+            SceneManager.LoadScene("Luca");
         }
 
 

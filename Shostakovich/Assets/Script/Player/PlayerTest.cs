@@ -45,6 +45,11 @@ public class PlayerTest : MonoBehaviour
     void Start()
     {
         detector.GetComponentInChildren<Detector>();
+        inventory = GameManager.Instance.Inventory;
+        currentOrientation = GameManager.Instance.CurrentOrientation;
+        transform.position = GameManager.Instance.PlayerPosition;
+        transform.rotation = GameManager.Instance.PlayerRotation;
+        
     }
 
     // Update is called once per frame
@@ -119,4 +124,13 @@ public class PlayerTest : MonoBehaviour
         isMoving = false;
             yield return 0;
         }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.CurrentOrientation = currentOrientation;
+        
+        GameManager.Instance.PlayerPosition = GetComponent<Transform>().position;
+        GameManager.Instance.PlayerRotation = GetComponent<Transform>().rotation;
+        GameManager.Instance.Inventory = inventory;
+    }
 }
