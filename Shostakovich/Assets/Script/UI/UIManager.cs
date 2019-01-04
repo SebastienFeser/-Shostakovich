@@ -30,10 +30,23 @@ public class UIManager : MonoBehaviour
         set { waitingDialogList = value; }
     }
 
+    void Awake()
+    {
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            //DontDestroyOnLoad(gameObject);
+        }
+    }
+
     void Start()
     {
         instance = this;
-        
+        scriptPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTest>();
         scriptPlayer.enabled = false;
         scriptPlayer.enabled = true;
     }

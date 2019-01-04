@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : FixObject
 {
-    [SerializeField] private GameObject room;
+    [SerializeField] private int room;
     [SerializeField] private string keyName;
     // Start is called before the first frame update
     void Start()
