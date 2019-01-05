@@ -10029,7 +10029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130583e616477ec45bdafefa95a630dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
   detector: {fileID: 161860270}
   key: 0
 --- !u!1 &1772874031

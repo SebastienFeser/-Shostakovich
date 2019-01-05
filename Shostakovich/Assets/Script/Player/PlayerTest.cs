@@ -7,14 +7,15 @@ public class PlayerTest : MonoBehaviour
 {
     Vector3 startPos;
     Vector3 endPos;
+    Vector2 input;
     float time;
 
     public enum Orientation
     {
         NORTH,
         SOUTH,
-        RIGHT,
-        LEFT
+        EAST,
+        WEST
     }
 
 
@@ -65,40 +66,63 @@ public class PlayerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Up"))
+        if (!isMoving && canMove)
         {
-            currentOrientation = Orientation.NORTH;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            if (!detector.DetectWall())
-            transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y + 1), speed);
-        }
-        else if (Input.GetButtonDown("Down"))
-        {
-            currentOrientation = Orientation.SOUTH;
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-            if (!detector.DetectWall())
-                transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y - 1), speed);
-        }
-        else if (Input.GetButtonDown("Right"))
-        {
-            currentOrientation = Orientation.RIGHT;
-            transform.rotation = Quaternion.Euler(0, 0, -90);
-            if (!detector.DetectWall())
-                transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x + 1, transform.position.y), speed);
-        }
-        else if (Input.GetButtonDown("Left"))
-        {
-            currentOrientation = Orientation.LEFT;
-            transform.rotation = Quaternion.Euler(0, 0, 90);
-            if (!detector.DetectWall())
-                transform.position = Vector3.Lerp(transform.position, new Vector2(transform.position.x - 1, transform.position.y), speed);
-        }
+            input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+                input.y = 0;
+            else
+                input.x = 0;
 
-        if (Input.GetButtonDown("Interact"))
-        {
-            if (detector.DetectInteract())
+            if (input != Vector2.zero)
             {
-                detector.DetectInteract().Interaction();
+
+                if (input.x < 0)
+                {
+                    currentOrientation = Orientation.WEST;
+                }
+                if (input.x > 0)
+                {
+                    currentOrientation = Orientation.EAST;
+                }
+                if (input.y < 0)
+                {
+                    currentOrientation = Orientation.SOUTH;
+                }
+                if (input.y > 0)
+                {
+                    currentOrientation = Orientation.NORTH;
+                }
+
+                switch (currentOrientation)
+                {
+                    case Orientation.NORTH:
+                        detector.transform.localPosition = new Vector2(0, 1);
+                        //northSprite;
+                        break;
+                    case Orientation.EAST:
+                        detector.transform.localPosition = new Vector2(1, 0);
+                        //eastSprite;
+                        break;
+                    case Orientation.SOUTH:
+                        detector.transform.localPosition = new Vector2(0, -1);
+                        //southSprite;
+                        break;
+                    case Orientation.WEST:
+                        detector.transform.localPosition = new Vector2(-1, 0);
+                        //westSprite;
+                        break;
+                }
+                //if detector dont detect a collider start coroutine
+                StartCoroutine(Move(transform));
+            }
+
+            if (Input.GetButtonDown("Interact"))
+            {
+                if (detector.DetectInteract())
+                {
+                    detector.DetectInteract().Interaction();
+                }
             }
         }
 
@@ -127,18 +151,25 @@ public class PlayerTest : MonoBehaviour
             Debug.Log("error object already exist");
         }
     }
+
     public IEnumerator Move(Transform entity)
         {
         isMoving = true;
         startPos = entity.position;
         time = 0;
 
-        //endPos = new Vector3(startPos.x + System.Math.Sign(input.x));
+        endPos = new Vector3(startPos.x + System.Math.Sign(input.x), startPos.y + System.Math.Sign(input.y), startPos.z);
 
+        while (time < 1f)
+        {
+            time += Time.deltaTime * speed;
+            entity.position = Vector3.Lerp(startPos, endPos, time);
+            yield return null;
+        }
 
         isMoving = false;
-            yield return 0;
-        }
+        yield return 0;
+    }
 
     private void OnDestroy()
     {
