@@ -88,22 +88,22 @@ public class PlayerTest : MonoBehaviour
                 {
                     case Orientation.NORTH:
                         detector.transform.localPosition = new Vector2(0, 1);
-                        //gameObject.GetComponent<SpriteRenderer>().sprite = northSprite;
+                        //northSprite;
                         break;
                     case Orientation.EAST:
                         detector.transform.localPosition = new Vector2(1, 0);
-                        //gameObject.GetComponent<SpriteRenderer>().sprite = eastSprite;
+                        //eastSprite;
                         break;
                     case Orientation.SOUTH:
                         detector.transform.localPosition = new Vector2(0, -1);
-                        //gameObject.GetComponent<SpriteRenderer>().sprite = southSprite;
+                        //southSprite;
                         break;
                     case Orientation.WEST:
                         detector.transform.localPosition = new Vector2(-1, 0);
-                        //gameObject.GetComponent<SpriteRenderer>().sprite = westSprite;
+                        //westSprite;
                         break;
                 }
-
+                //if detector dont detect a collider start coroutine
                 StartCoroutine(Move(transform));
             }
 
