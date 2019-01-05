@@ -97,24 +97,27 @@ public class PlayerTest : MonoBehaviour
                 switch (currentOrientation)
                 {
                     case Orientation.NORTH:
-                        detector.transform.localPosition = new Vector2(0, 1);
+                        detector.transform.localPosition = new Vector2(0, -1);
                         //northSprite;
                         break;
                     case Orientation.EAST:
-                        detector.transform.localPosition = new Vector2(1, 0);
+                        detector.transform.localPosition = new Vector2(-1, 0);
                         //eastSprite;
                         break;
                     case Orientation.SOUTH:
-                        detector.transform.localPosition = new Vector2(0, -1);
+                        detector.transform.localPosition = new Vector2(0, 1);
                         //southSprite;
                         break;
                     case Orientation.WEST:
-                        detector.transform.localPosition = new Vector2(-1, 0);
+                        detector.transform.localPosition = new Vector2(1, 0);
                         //westSprite;
                         break;
                 }
-                //if detector dont detect a collider start coroutine
-                StartCoroutine(Move(transform));
+
+                if (!detector.DetectWall())
+                {
+                    StartCoroutine(Move(transform));
+                }
             }
 
             if (Input.GetButtonDown("Interact"))
