@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
-  m_Name: Otis
+  m_Name: Youri
   m_EditorClassIdentifier: 
   dialog:
   - "Player : C'est une bonne situation, \xE7a, scribe ?"
-  - 'Otis : Mais, vous savez, moi je ne crois pas qu''il y ait de bonne ou de mauvaise
+  - 'Youri : Mais, vous savez, moi je ne crois pas qu''il y ait de bonne ou de mauvaise
     situation. '
   - "Moi, si je devais r\xE9sumer ma vie aujourd'hui avec vous, je dirais que c'est
     d'abord des rencontres,"
@@ -37,4 +37,6 @@ MonoBehaviour:
     m\xE9canique,"
   - "mais demain, qui sait, peut-\xEAtre seulement \xE0 me mettre au service de la
     communaut\xE9, \xE0 faire le don, le don de soi..."
-  alternativeDialog: []
+  alternativeDialog:
+  - 'Player : Au fait vous avez un morceau de la valse de Chostokovitch?'
+  - "Youri : Oui, tiens le voil\xE0."

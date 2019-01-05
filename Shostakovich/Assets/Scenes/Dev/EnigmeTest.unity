@@ -987,7 +987,7 @@ MonoBehaviour:
   xWinPosition: -4
   yWinPosition: 0
   victoryText: {fileID: 1404630671}
-  rewardObject: musicSheet1
+  rewardObject: musicSheet3
 --- !u!4 &1399708253
 Transform:
   m_ObjectHideFlags: 0

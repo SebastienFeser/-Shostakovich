@@ -21,7 +21,7 @@ public class PlayerTest : MonoBehaviour
 
     [SerializeField] private float speed;
 
-    private Orientation currentOrientation;
+    private Orientation currentOrientation = Orientation.SOUTH;
     public Orientation CurrentOrientation => currentOrientation;
 
     [SerializeField] private Detector detector;
@@ -47,10 +47,20 @@ public class PlayerTest : MonoBehaviour
     {
         detector.GetComponentInChildren<Detector>();
         inventory = GameManager.Instance.Inventory;
-        currentOrientation = GameManager.Instance.CurrentOrientation;
-        transform.position = GameManager.Instance.PlayerPosition;
-        transform.rotation = GameManager.Instance.PlayerRotation;
-        
+        if (GameManager.Instance.PlayerPosition != Vector3.zero)
+        {
+            currentOrientation = GameManager.Instance.CurrentOrientation;
+            transform.position = GameManager.Instance.PlayerPosition;
+            transform.rotation = GameManager.Instance.PlayerRotation;
+        }
+        else
+        {
+            GameManager.Instance.CurrentOrientation = currentOrientation;
+            GameManager.Instance.PlayerPosition = transform.position;
+            GameManager.Instance.PlayerRotation = transform.rotation;
+            GameManager.Instance.Inventory = inventory;
+        }
+
     }
 
     // Update is called once per frame
@@ -116,6 +126,11 @@ public class PlayerTest : MonoBehaviour
             }
         }
 
+
+        if (inventory.Contains("musicSheet1") && inventory.Contains("musicSheet2") && inventory.Contains("musicSheet3") && inventory.Contains("musicSheet4"))
+        {
+            Application.Quit();
+        }
         
         
     }
@@ -160,8 +175,8 @@ public class PlayerTest : MonoBehaviour
     {
         GameManager.Instance.CurrentOrientation = currentOrientation;
         
-        GameManager.Instance.PlayerPosition = GetComponent<Transform>().position;
-        GameManager.Instance.PlayerRotation = GetComponent<Transform>().rotation;
+        GameManager.Instance.PlayerPosition = transform.position;
+        GameManager.Instance.PlayerRotation = transform.rotation;
         GameManager.Instance.Inventory = inventory;
     }
 }
