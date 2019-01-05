@@ -7,7 +7,13 @@ public class Dove : FixObject
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (GameManager.Instance.DoveFlee)
+        {
+            GameManager.Instance.DoveFlee = true;
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            Wall = false;
+            Interactive = false;
+        }
     }
 
     // Update is called once per frame

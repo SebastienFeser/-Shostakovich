@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Dev/EnigmeTest.unity
+    guid: c97b4f03607fb3b478cd9b2f410f4573
+  - enabled: 1
+    path: Assets/Scenes/Dev/Luca.unity
+    guid: c6e3366101216654ea52285103995362
   m_configObjects: {}
