@@ -25,13 +25,6 @@ public class PlayerTest : MonoBehaviour
     public Orientation CurrentOrientation => currentOrientation;
 
     [SerializeField] private Detector detector;
-
-    [SerializeField] private bool key;
-    public bool Key
-    {
-        get { return key; }
-        set { key = value; }
-    }
     
     private List<string> inventory = new List<string>();
     public List<string> Inventory

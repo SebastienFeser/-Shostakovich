@@ -139,9 +139,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3073
-        width: 512
-        height: 512
+        y: 3074
+        width: 511
+        height: 511
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,10 +158,10 @@ TextureImporter:
       name: interieur2_1
       rect:
         serializedVersion: 2
-        x: 515
-        y: 3073
-        width: 512
-        height: 512
+        x: 517
+        y: 3074
+        width: 510
+        height: 511
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: interieur2_2
       rect:
         serializedVersion: 2
-        x: 1030
-        y: 3073
-        width: 512
-        height: 512
+        x: 1031
+        y: 3074
+        width: 509
+        height: 511
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,10 +198,10 @@ TextureImporter:
       name: interieur2_3
       rect:
         serializedVersion: 2
-        x: 1545
-        y: 3073
-        width: 512
-        height: 512
+        x: 1546
+        y: 3074
+        width: 509
+        height: 511
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: interieur2_4
       rect:
         serializedVersion: 2
-        x: 2064
-        y: 3073
-        width: 512
-        height: 512
+        x: 2061
+        y: 3074
+        width: 510
+        height: 511
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: interieur2_5
       rect:
         serializedVersion: 2
-        x: 2575
-        y: 3073
-        width: 512
-        height: 512
+        x: 2574
+        y: 3074
+        width: 510
+        height: 511
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,8 +260,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 2558
-        width: 512
-        height: 512
+        width: 511
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: interieur2_7
       rect:
         serializedVersion: 2
-        x: 515
+        x: 517
         y: 2558
-        width: 512
-        height: 512
+        width: 508
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,8 +300,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1030
         y: 2558
-        width: 512
-        height: 512
+        width: 510
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: interieur2_9
       rect:
         serializedVersion: 2
-        x: 1545
-        y: 2558
-        width: 512
-        height: 512
+        x: 1546
+        y: 2560
+        width: 509
+        height: 508
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +338,10 @@ TextureImporter:
       name: interieur2_10
       rect:
         serializedVersion: 2
-        x: 2060
+        x: 2061
         y: 2558
-        width: 512
-        height: 512
+        width: 510
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,9 +359,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2575
-        y: 2558
-        width: 512
-        height: 512
+        y: 2559
+        width: 510
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,9 +379,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2043
-        width: 512
-        height: 512
+        y: 2045
+        width: 511
+        height: 508
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,10 +398,10 @@ TextureImporter:
       name: interieur2_13
       rect:
         serializedVersion: 2
-        x: 515
-        y: 2043
-        width: 512
-        height: 512
+        x: 517
+        y: 2045
+        width: 510
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,10 +418,10 @@ TextureImporter:
       name: interieur2_14
       rect:
         serializedVersion: 2
-        x: 1030
-        y: 2043
-        width: 512
-        height: 512
+        x: 1031
+        y: 2045
+        width: 510
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -438,10 +438,10 @@ TextureImporter:
       name: interieur2_15
       rect:
         serializedVersion: 2
-        x: 1545
-        y: 2043
-        width: 512
-        height: 512
+        x: 1548
+        y: 2045
+        width: 508
+        height: 508
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,9 +459,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1528
-        width: 512
-        height: 512
+        y: 1532
+        width: 509
+        height: 508
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,10 +478,10 @@ TextureImporter:
       name: interieur2_17
       rect:
         serializedVersion: 2
-        x: 515
-        y: 1528
-        width: 512
-        height: 512
+        x: 517
+        y: 1532
+        width: 508
+        height: 508
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -499,9 +499,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1030
-        y: 1528
-        width: 512
-        height: 512
+        y: 1532
+        width: 510
+        height: 508
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -519,9 +519,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1013
-        width: 512
-        height: 512
+        y: 1017
+        width: 511
+        height: 509
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,10 +538,10 @@ TextureImporter:
       name: interieur2_21
       rect:
         serializedVersion: 2
-        x: 515
-        y: 1013
-        width: 512
-        height: 512
+        x: 517
+        y: 1018
+        width: 508
+        height: 508
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -558,10 +558,10 @@ TextureImporter:
       name: interieur2_22
       rect:
         serializedVersion: 2
-        x: 1030
-        y: 1013
-        width: 512
-        height: 512
+        x: 1033
+        y: 1017
+        width: 510
+        height: 509
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -579,11 +579,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 500
-        width: 512
-        height: 512
+        y: 503
+        width: 511
+        height: 511
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -599,11 +599,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 517
-        y: 500
-        width: 512
-        height: 512
+        y: 503
+        width: 508
+        height: 508
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -618,12 +618,12 @@ TextureImporter:
       name: interieur2_24
       rect:
         serializedVersion: 2
-        x: 1029
-        y: 500
-        width: 512
-        height: 512
+        x: 1030
+        y: 503
+        width: 510
+        height: 508
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
