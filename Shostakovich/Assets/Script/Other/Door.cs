@@ -33,6 +33,7 @@ public class Door : FixObject
 
             }
 
+            other.GetComponent<PlayerTest>().TimeMove = 2;
             switch (other.GetComponent<PlayerTest>().CurrentOrientation)
             {
                 case PlayerTest.Orientation.NORTH:
