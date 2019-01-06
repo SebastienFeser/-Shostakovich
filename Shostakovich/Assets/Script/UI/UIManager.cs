@@ -14,10 +14,16 @@ public class UIManager : MonoBehaviour
 
 
     [SerializeField] private GameObject dialogWindow;
+    [SerializeField] private GameObject letter;
+    public GameObject Letter
+    {
+        get { return letter; }
+        set { letter = value; }
+    }
     
     [SerializeField] private static UIManager instance;
     public static UIManager Instance => instance;
-    // Start is called before the first frame update
+
     private DialogState currentDialogState = DialogState.NONE;
     public DialogState CurrentDialogState => currentDialogState;
     private int indexDialog = 0;
@@ -29,6 +35,7 @@ public class UIManager : MonoBehaviour
         get { return waitingDialogList; }
         set { waitingDialogList = value; }
     }
+
 
     void Awake()
     {
@@ -66,7 +73,13 @@ public class UIManager : MonoBehaviour
         {
             case (DialogState.CONTINUE):
             {
+                if (currentDialog[indexDialog] == "$letter$")
+                {
+                    UIManager.Instance.Letter.SetActive(true);
+                }
+
                 ShowDialog(currentDialog);
+                
                 break;
             }
             case (DialogState.FINISH):

@@ -94,15 +94,12 @@ public class PuzzleMap : MonoBehaviour
             if (!GameManager.Instance.Inventory.Contains(rewardObject))
             {
                 GameManager.Instance.Inventory.Add(rewardObject);
-                GameManager.Instance.Inventory.Add("musicSheet2");
-                GameManager.Instance.Inventory.Add("musicSheet3");
             }
             else
             {
                 Debug.Log("error object already exist");
             }
 
-            SceneManager.LoadScene("Luca");
         }
 
 
@@ -116,7 +113,7 @@ public class PuzzleMap : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(2f);
-        //Box opened
-        Debug.Log("Load Scene");
+
+        SceneManager.LoadScene("Luca");
     }
 }
