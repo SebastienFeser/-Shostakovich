@@ -1,78 +1,59 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+
+[Serializable]
+public class SaveData
+{
+    public bool doveFlee = false;
+    public Caretaker.CaretakerState currentState;
+    public Vector3 playerPosition;
+    
+
+
+    public PlayerTest.Orientation currentOrientation;
+
+    public bool exteriorPosition = true;
+
+    public int currentMap = -1;
+
+
+    public List<string> inventory = new List<string>();
+}
+
 
 public class GameManager : MonoBehaviour
 {
-    private bool doveFlee = false;
-    public bool DoveFlee
+
+    private string fileName;
+    private string saveDataJson;
+
+
+    private SaveData saveDataInstance;
+    public SaveData SaveDataInstance
     {
-        get { return doveFlee; }
-        set { doveFlee = value; }
+        get { return saveDataInstance; }
+        set { saveDataInstance = value; }
     }
 
-    private Caretaker.CaretakerState currentState;
-    public Caretaker.CaretakerState CurrentState
-    {
-        get { return currentState; }
-        set { currentState = value; }
-    }
-    private Vector3 playerPosition;
-    public Vector3 PlayerPosition
-    {
-        get { return playerPosition; }
-        set { playerPosition = value; }
-    }
-
-    private Quaternion playerRotation;
-    public Quaternion PlayerRotation
-    {
-        get { return playerRotation; }
-        set { playerRotation = value; }
-    }
-
-
-    private PlayerTest.Orientation currentOrientation;
-    public PlayerTest.Orientation CurrentOrientation
-    {
-        get { return currentOrientation; }
-        set { currentOrientation = value; }
-    }
-
-    private bool exteriorPosition = true;
-    public bool ExteriorPosition
-    {
-        get { return exteriorPosition; }
-        set { exteriorPosition = value; }
-    }
-
-    private int currentMap = -1;
-    public int CurrentMap
-    {
-        get { return currentMap; }
-        set { currentMap = value; }
-    }
-
-    private List<string> inventory = new List<string>();
-    public List<string> Inventory
-    {
-        get { return inventory; }
-        set { inventory = value; }
-    }
-
-
+    
 
     [SerializeField] private static GameManager instance;
     public static GameManager Instance => instance;
 
     void Awake()
     {
+        saveDataInstance = new SaveData();
+        fileName = Application.streamingAssetsPath + "/SaveData.json";
         if (instance)
         {
             Destroy(gameObject);
         }
         else
         {
+            Load();
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -80,12 +61,51 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Save();
+        }
+    }
+
+    void Save()
+    {
         
+        if (File.Exists(fileName))
+        {
+            saveDataJson = JsonUtility.ToJson(saveDataInstance);
+            StreamWriter sw = File.CreateText(fileName);
+            sw.Write(saveDataJson);
+            sw.Close();
+        }
+        else
+        {
+            saveDataJson = JsonUtility.ToJson(saveDataInstance);
+            StreamWriter sw = File.CreateText(fileName);
+            sw.Write(saveDataJson);
+            sw.Close();
+        }
+        Debug.Log(saveDataJson);
+    }
+
+    private void OnDestroy()
+    {
+        Save();
+    }
+
+
+    void Load()
+    {
+        if (File.Exists(fileName))
+        {
+            saveDataJson = File.ReadAllText(fileName);
+            JsonUtility.FromJsonOverwrite(saveDataJson, saveDataInstance);
+        }
     }
     
 }

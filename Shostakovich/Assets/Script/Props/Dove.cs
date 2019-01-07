@@ -9,9 +9,9 @@ public class Dove : FixObject
     [SerializeField] AudioClip pigeonClip;
     void Start()
     {
-        if (GameManager.Instance.DoveFlee)
+        if (GameManager.Instance.SaveDataInstance.doveFlee)
         {
-            GameManager.Instance.DoveFlee = true;
+            GameManager.Instance.SaveDataInstance.doveFlee = true;
             GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             Wall = false;
             Interactive = false;
@@ -29,7 +29,7 @@ public class Dove : FixObject
         pigeonSource.clip = pigeonClip;
         pigeonSource.Play();
         base.Interaction();
-        GameManager.Instance.DoveFlee = true;
+        GameManager.Instance.SaveDataInstance.doveFlee = true;
         GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         Wall = false;
         Interactive = false;
