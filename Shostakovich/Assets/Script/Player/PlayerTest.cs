@@ -9,6 +9,11 @@ public class PlayerTest : MonoBehaviour
     Vector3 endPos;
     Vector2 input;
     float time;
+    public float TimeMove
+    {
+        get { return time; }
+        set { time = value; }
+    }
 
     public enum Orientation
     {
