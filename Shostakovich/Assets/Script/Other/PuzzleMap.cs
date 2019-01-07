@@ -25,6 +25,8 @@ public class PuzzleMap : MonoBehaviour
     bool endstarted = false;
 
     [SerializeField] private string rewardObject;
+    [SerializeField] AudioSource boxSource;
+    [SerializeField] AudioClip lockerClip;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,7 @@ public class PuzzleMap : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") > 0 && !buttonHorizontal && canMove)
         {
             buttonHorizontal = true;
-            if (axeX.transform.position.x < 5)
+            if (axeX.transform.position.x < 4.5)
             {
                 axeX.transform.position = new Vector2(axeX.transform.position.x + 0.5f, axeX.transform.position.y);
             }
@@ -49,7 +51,7 @@ public class PuzzleMap : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < 0 && !buttonHorizontal && canMove)
         {
             buttonHorizontal = true;
-            if (axeX.transform.position.x > -5)
+            if (axeX.transform.position.x > -4.5)
             {
                 axeX.transform.position = new Vector2(axeX.transform.position.x - 0.5f, axeX.transform.position.y);
             }
@@ -88,6 +90,8 @@ public class PuzzleMap : MonoBehaviour
         if (axeX.transform.position.x == xWinPosition && axeY.transform.position.y == yWinPosition && !endstarted)
         {
             //play unlock sound
+            boxSource.clip = lockerClip;
+            boxSource.Play();
             canMove = false;
             StartCoroutine(WinText());
             endstarted = true;

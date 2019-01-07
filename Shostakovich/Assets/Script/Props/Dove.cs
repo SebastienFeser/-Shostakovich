@@ -5,6 +5,8 @@ using UnityEngine;
 public class Dove : FixObject
 {
     // Start is called before the first frame update
+    [SerializeField] AudioSource pigeonSource;
+    [SerializeField] AudioClip pigeonClip;
     void Start()
     {
         if (GameManager.Instance.SaveDataInstance.doveFlee)
@@ -24,6 +26,8 @@ public class Dove : FixObject
 
     public override void Interaction()
     {
+        pigeonSource.clip = pigeonClip;
+        pigeonSource.Play();
         base.Interaction();
         GameManager.Instance.SaveDataInstance.doveFlee = true;
         GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
