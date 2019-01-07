@@ -99,6 +99,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void InventoryDisplay()
+    {
+
+    }
+
 
     public void ShowDialog(string[] text)
     {
