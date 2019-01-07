@@ -44,19 +44,35 @@ public class PlayerTest : MonoBehaviour
     void Start()
     {
         detector.GetComponentInChildren<Detector>();
-        inventory = GameManager.Instance.Inventory;
-        if (GameManager.Instance.PlayerPosition != Vector3.zero)
+        inventory = GameManager.Instance.SaveDataInstance.inventory;
+        if (GameManager.Instance.SaveDataInstance.playerPosition != Vector3.zero)
         {
-            currentOrientation = GameManager.Instance.CurrentOrientation;
-            transform.position = GameManager.Instance.PlayerPosition;
-            transform.rotation = GameManager.Instance.PlayerRotation;
+            currentOrientation = GameManager.Instance.SaveDataInstance.currentOrientation;
+            switch (currentOrientation)
+            {
+                case Orientation.NORTH:
+                    detector.transform.localPosition = new Vector2(0, -1);
+                    //northSprite;
+                    break;
+                case Orientation.EAST:
+                    detector.transform.localPosition = new Vector2(-1, 0);
+                    //eastSprite;
+                    break;
+                case Orientation.SOUTH:
+                    detector.transform.localPosition = new Vector2(0, 1);
+                    //southSprite;
+                    break;
+                case Orientation.WEST:
+                    detector.transform.localPosition = new Vector2(1, 0);
+                    //westSprite;
+                    break;
+            }
+            transform.position = GameManager.Instance.SaveDataInstance.playerPosition;
         }
         else
         {
-            GameManager.Instance.CurrentOrientation = currentOrientation;
-            GameManager.Instance.PlayerPosition = transform.position;
-            GameManager.Instance.PlayerRotation = transform.rotation;
-            GameManager.Instance.Inventory = inventory;
+            GameManager.Instance.SaveDataInstance.currentOrientation = currentOrientation;
+            GameManager.Instance.SaveDataInstance.playerPosition = transform.position;
         }
 
     }
@@ -174,10 +190,9 @@ public class PlayerTest : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.CurrentOrientation = currentOrientation;
+        GameManager.Instance.SaveDataInstance.currentOrientation = currentOrientation;
         
-        GameManager.Instance.PlayerPosition = transform.position;
-        GameManager.Instance.PlayerRotation = transform.rotation;
-        GameManager.Instance.Inventory = inventory;
+        GameManager.Instance.SaveDataInstance.playerPosition = transform.position;
+        GameManager.Instance.SaveDataInstance.inventory = inventory;
     }
 }

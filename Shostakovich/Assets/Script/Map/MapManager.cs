@@ -28,16 +28,17 @@ public class MapManager : MonoBehaviour
     }
 
 
+
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.Instance.CurrentMap != -1)
+        if (GameManager.Instance.SaveDataInstance.currentMap != -1)
         {
-            currentMap = GameManager.Instance.CurrentMap;
+            currentMap = GameManager.Instance.SaveDataInstance.currentMap;
         }
 
-        exteriorPosition = GameManager.Instance.ExteriorPosition;
-        if (GameManager.Instance.ExteriorPosition)
+        exteriorPosition = GameManager.Instance.SaveDataInstance.exteriorPosition;
+        if (GameManager.Instance.SaveDataInstance.exteriorPosition)
         {
             wall.SetActive(true);
             exterior.SetActive(true);
@@ -76,8 +77,8 @@ public class MapManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.ExteriorPosition = exteriorPosition;
-        GameManager.Instance.CurrentMap = currentMap;
+        GameManager.Instance.SaveDataInstance.exteriorPosition = exteriorPosition;
+        GameManager.Instance.SaveDataInstance.currentMap = currentMap;
 
     }
 }

@@ -91,9 +91,9 @@ public class PuzzleMap : MonoBehaviour
             canMove = false;
             StartCoroutine(WinText());
             endstarted = true;
-            if (!GameManager.Instance.Inventory.Contains(rewardObject))
+            if (!GameManager.Instance.SaveDataInstance.inventory.Contains(rewardObject))
             {
-                GameManager.Instance.Inventory.Add(rewardObject);
+                GameManager.Instance.SaveDataInstance.inventory.Add(rewardObject);
             }
             else
             {

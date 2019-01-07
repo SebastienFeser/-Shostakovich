@@ -7,9 +7,9 @@ public class Dove : FixObject
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.Instance.DoveFlee)
+        if (GameManager.Instance.SaveDataInstance.doveFlee)
         {
-            GameManager.Instance.DoveFlee = true;
+            GameManager.Instance.SaveDataInstance.doveFlee = true;
             GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             Wall = false;
             Interactive = false;
@@ -25,7 +25,7 @@ public class Dove : FixObject
     public override void Interaction()
     {
         base.Interaction();
-        GameManager.Instance.DoveFlee = true;
+        GameManager.Instance.SaveDataInstance.doveFlee = true;
         GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         Wall = false;
         Interactive = false;

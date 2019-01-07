@@ -32,7 +32,7 @@ public class Caretaker : FixObject
     // Start is called before the first frame update
     void Start()
     {
-        currentState = GameManager.Instance.CurrentState;
+        currentState = GameManager.Instance.SaveDataInstance.currentState;
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class Caretaker : FixObject
         {
             currentState = CaretakerState.LAST;
         }
-        if (GameManager.Instance.DoveFlee && currentState == CaretakerState.INTRODUCTION)
+        if (GameManager.Instance.SaveDataInstance.doveFlee && currentState == CaretakerState.INTRODUCTION)
         {
             currentState = CaretakerState.DOVE;
         }
@@ -108,6 +108,6 @@ public class Caretaker : FixObject
 
     private void OnDestroy()
     {
-        GameManager.Instance.CurrentState = currentState;
+        GameManager.Instance.SaveDataInstance.currentState = currentState;
     }
 }
