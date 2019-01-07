@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private static GameManager instance;
     public static GameManager Instance => instance;
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (instance)
