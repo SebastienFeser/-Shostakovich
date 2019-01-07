@@ -134,15 +134,21 @@ public class PlayerTest : MonoBehaviour
                 }
             }
 
-            if (Input.GetButtonDown("Interact"))
+        }
+
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (detector.DetectInteract())
             {
-                if (detector.DetectInteract())
-                {
-                    detector.DetectInteract().Interaction();
-                }
+                detector.DetectInteract().Interaction();
             }
         }
 
+        if (Input.GetButtonDown("Inventory"))
+        {
+            UIManager.Instance.InventoryDisplay(inventory);
+        }
 
         if (inventory.Contains("musicSheet1") && inventory.Contains("musicSheet2") && inventory.Contains("musicSheet3") && inventory.Contains("musicSheet4"))
         {
