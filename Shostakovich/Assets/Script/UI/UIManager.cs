@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,7 +22,19 @@ public class UIManager : MonoBehaviour
         get { return letter; }
         set { letter = value; }
     }
-    
+
+    [SerializeField] private GameObject inventory;
+
+    [SerializeField] private GameObject[] inventoryslot;
+    [SerializeField] private Sprite KeyRoom1;
+    [SerializeField] private Sprite KeyRoom2;
+    [SerializeField] private Sprite KeyRoom3;
+    [SerializeField] private Sprite musicSheet1;
+    [SerializeField] private Sprite musicSheet2;
+    [SerializeField] private Sprite musicSheet3;
+
+    [SerializeField] private Animator endAnimator;
+
     [SerializeField] private static UIManager instance;
     public static UIManager Instance => instance;
 
@@ -73,13 +87,22 @@ public class UIManager : MonoBehaviour
         {
             case (DialogState.CONTINUE):
             {
-                if (currentDialog[indexDialog] == "$letter$")
+                if (currentDialog[indexDialog] == "$end$")
                 {
-                    UIManager.Instance.Letter.SetActive(true);
+                    End();
+                }
+                else
+                {
+
+                    if (currentDialog[indexDialog] == "$letter$")
+                    {
+                        UIManager.Instance.Letter.SetActive(true);
+                    }
+
+
+                    ShowDialog(currentDialog);
                 }
 
-                ShowDialog(currentDialog);
-                
                 break;
             }
             case (DialogState.FINISH):
@@ -99,9 +122,68 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void InventoryDisplay()
+    public void InventoryDisplay(List<string> playerInventory)
     {
+        if (inventory.activeSelf)
+        {
+            inventory.SetActive(false);
+            for (int i = 0; i < inventoryslot.Length; i++)
+            {
+                inventoryslot[i].SetActive(false);
+            }
+        }
+        else
+        {
+            inventory.SetActive(true);
+            foreach (var objectInventory in playerInventory)
+            {
+                Sprite spriteImage = null;
+                if (objectInventory == "KeyRoom1")
+                {
+                    spriteImage = KeyRoom1;
+                } else
+                if (objectInventory == "KeyRoom2")
+                {
+                    spriteImage = KeyRoom2;
+                }
+                else
+                if(objectInventory == "KeyRoom3")
+                {
+                    spriteImage = KeyRoom3;
+                } else
+                if (objectInventory == "musicSheet1")
+                {
+                    spriteImage = musicSheet1;
+                }
+                else
+                if (objectInventory == "musicSheet2")
+                {
+                    spriteImage = musicSheet2;
+                }
+                else
+                if(objectInventory == "musicSheet3")
+                {
+                    spriteImage = musicSheet3;
+                }
 
+                if (spriteImage)
+                {
+                    for (int i = 0; i < inventoryslot.Length; i++)
+                    {
+                        if (!inventoryslot[i].activeSelf)
+                        {
+                            inventoryslot[i].SetActive(true);
+                            inventoryslot[i].GetComponent<Image>().sprite = spriteImage;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.Log("Error Image Non assigné");
+                }
+            }
+        }
     }
 
 
@@ -122,5 +204,10 @@ public class UIManager : MonoBehaviour
             currentDialog = null;
             currentDialogState = DialogState.FINISH;
         }
+    }
+
+    private void End()
+    {
+        endAnimator.SetBool("End", true);
     }
 }

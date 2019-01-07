@@ -15,4 +15,5 @@ MonoBehaviour:
   dialog:
   - "Je vois que tu as trouv\xE9 les trois partitions... Voici la derni\xE8re partie,
     bien jou\xE9."
+  - $end$
   alternativeDialog: []
