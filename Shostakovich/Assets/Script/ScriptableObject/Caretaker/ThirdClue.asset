@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThirdClue
   m_EditorClassIdentifier: 
   dialog:
-  - "Nikola\xEF Steinberg habite dans l'immeuble rouge. Demande-lui des informations,
+  - "Nikola\xEF Steinberg habite dans l'immeuble rouge. Va chercher des informations,
     il pourra peut-\xEAtre t'aider."
   alternativeDialog:
   - "Va voir Nikola\xEF Steinberg dans l'immeuble rouge."
