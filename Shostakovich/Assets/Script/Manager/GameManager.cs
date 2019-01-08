@@ -83,13 +83,6 @@ public class GameManager : MonoBehaviour
             sw.Write(saveDataJson);
             sw.Close();
         }
-        else
-        {
-            saveDataJson = JsonUtility.ToJson(saveDataInstance);
-            StreamWriter sw = File.CreateText(fileName);
-            sw.Write(saveDataJson);
-            sw.Close();
-        }
         Debug.Log(saveDataJson);
     }
 

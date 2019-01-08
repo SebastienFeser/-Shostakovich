@@ -12,7 +12,7 @@ public class Dove : FixObject
         if (GameManager.Instance.SaveDataInstance.doveFlee)
         {
             GameManager.Instance.SaveDataInstance.doveFlee = true;
-            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0f);
             Wall = false;
             Interactive = false;
         }
@@ -30,7 +30,7 @@ public class Dove : FixObject
         pigeonSource.Play();
         base.Interaction();
         GameManager.Instance.SaveDataInstance.doveFlee = true;
-        GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0f);
         Wall = false;
         Interactive = false;
     }
