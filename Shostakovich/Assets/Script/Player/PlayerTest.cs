@@ -174,11 +174,6 @@ public class PlayerTest : MonoBehaviour
             UIManager.Instance.InventoryDisplay(inventory);
         }
 
-        if (inventory.Contains("musicSheet1") && inventory.Contains("musicSheet2") && inventory.Contains("musicSheet3") && inventory.Contains("musicSheet4"))
-        {
-            Application.Quit();
-        }
-
 
     }
 
