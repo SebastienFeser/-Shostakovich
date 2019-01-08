@@ -26,6 +26,12 @@ public class PlayerTest : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    [SerializeField] private Sprite up;
+    [SerializeField] private Sprite down;
+    [SerializeField] private Sprite right;
+    [SerializeField] private Sprite left;
+
+
     private Orientation currentOrientation = Orientation.SOUTH;
     public Orientation CurrentOrientation => currentOrientation;
 
@@ -40,9 +46,12 @@ public class PlayerTest : MonoBehaviour
     bool isMoving = false;
     bool canMove = true;
 
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+        animator.SetFloat("Speed", speed);
         detector.GetComponentInChildren<Detector>();
         inventory = GameManager.Instance.SaveDataInstance.inventory;
         if (GameManager.Instance.SaveDataInstance.playerPosition != Vector3.zero)
@@ -94,36 +103,51 @@ public class PlayerTest : MonoBehaviour
                 if (input.x < 0)
                 {
                     currentOrientation = Orientation.WEST;
+                    detector.transform.localPosition = new Vector2(1, 0);
+                    animator.SetInteger("Orientation", 4);
                 }
                 if (input.x > 0)
                 {
                     currentOrientation = Orientation.EAST;
+                    detector.transform.localPosition = new Vector2(-1, 0);
+                    animator.SetInteger("Orientation", 2);
+
                 }
                 if (input.y < 0)
                 {
                     currentOrientation = Orientation.SOUTH;
+                    detector.transform.localPosition = new Vector2(0, 1);
+                    animator.SetInteger("Orientation", 3);
+
                 }
                 if (input.y > 0)
                 {
                     currentOrientation = Orientation.NORTH;
+                    detector.transform.localPosition = new Vector2(0, -1);
+                    animator.SetInteger("Orientation", 1);
+
                 }
 
                 switch (currentOrientation)
                 {
                     case Orientation.NORTH:
-                        detector.transform.localPosition = new Vector2(0, -1);
-                        //northSprite;
+                        
+
                         break;
                     case Orientation.EAST:
-                        detector.transform.localPosition = new Vector2(-1, 0);
+                        
+
                         //eastSprite;
                         break;
                     case Orientation.SOUTH:
-                        detector.transform.localPosition = new Vector2(0, 1);
+                        
+
                         //southSprite;
                         break;
                     case Orientation.WEST:
-                        detector.transform.localPosition = new Vector2(1, 0);
+                        
+
+
                         //westSprite;
                         break;
                 }
@@ -154,8 +178,8 @@ public class PlayerTest : MonoBehaviour
         {
             Application.Quit();
         }
-        
-        
+
+
     }
 
     public bool SearchInInventory(string nameObject)
@@ -178,6 +202,8 @@ public class PlayerTest : MonoBehaviour
     public IEnumerator Move(Transform entity)
         {
         isMoving = true;
+
+            animator.SetBool("Move", isMoving);
         startPos = entity.position;
         time = 0;
 
@@ -189,8 +215,10 @@ public class PlayerTest : MonoBehaviour
             entity.position = Vector3.Lerp(startPos, endPos, time);
             yield return null;
         }
+        
 
         isMoving = false;
+            animator.SetBool("Move", isMoving);
         yield return 0;
     }
 
