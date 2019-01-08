@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66656e59349d6843b4daf109b741433, type: 3}
   m_Name: LeftLibrary
   m_EditorClassIdentifier: 
-  dialog: []
-  alternativeDialog: []
+  dialog:
+  - Vous trouvez un morceau de la partition.
+  alternativeDialog:
+  - Il n'y a plus rien.
