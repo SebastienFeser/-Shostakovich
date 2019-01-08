@@ -43,6 +43,10 @@ public class Caretaker : FixObject
 
     public override void Interaction()
     {
+        if (GetComponent<AudioSource>())
+        {
+            GetComponent<AudioSource>().Play();
+        }
 
         bool haveObjects = true;
         foreach (var requiredObject in requiredObjects)

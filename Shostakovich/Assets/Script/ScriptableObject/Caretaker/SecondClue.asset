@@ -15,6 +15,6 @@ MonoBehaviour:
   dialog:
   - "Sinon, il semblerait que Youri L\xE9vitine poss\xE8de aussi une partie de cette
     partition."
-  - Va lui parler, il est dans l'immeuble jaune.
+  - Va voir, il est dans l'immeuble jaune.
   alternativeDialog:
   - "Va voir Youri L\xE9vitine dans l'immeuble jaune."

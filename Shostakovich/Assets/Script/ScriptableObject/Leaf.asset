@@ -14,9 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
   - "Des feuilles mortes sont rassembl\xE9es par terre."
-  - (Je sais pas dessiner je sais.)
-  - Il n'y a pas de clefs...
   alternativeDialog:
   - "Des feuilles mortes sont rassembl\xE9es par terre."
-  - (Je sais pas dessiner je sais.)
-  - Vous trouvez une clefs.

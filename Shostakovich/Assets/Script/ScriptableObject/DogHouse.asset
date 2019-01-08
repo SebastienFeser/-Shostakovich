@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog:
   - Vous fouyez la niche...
-  - "Il y a une cl\xE9 \xE0 l'int\xE9rieur."
+  - "Il y a une clef \xE0 l'int\xE9rieur."
   alternativeDialog:
   - "Il n'y a plus rien. Le chien n'est pas l\xE0."

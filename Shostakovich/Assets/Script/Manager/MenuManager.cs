@@ -32,9 +32,14 @@ public class MenuManager : MonoBehaviour
 
     public void NewGameButton()
     {
-         StreamWriter sw = File.CreateText(Application.streamingAssetsPath + "/SaveData.json");
+#if UNITY_WEBGL
+
+#else
+        
+        StreamWriter sw = File.CreateText(Application.streamingAssetsPath + "/SaveData.json");
          sw.Write("");
          sw.Close();
+#endif
         SceneManager.LoadScene("Luca");
     }
 }
