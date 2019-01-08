@@ -26,6 +26,12 @@ public class PlayerTest : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    [SerializeField] private Sprite up;
+    [SerializeField] private Sprite down;
+    [SerializeField] private Sprite right;
+    [SerializeField] private Sprite left;
+
+
     private Orientation currentOrientation = Orientation.SOUTH;
     public Orientation CurrentOrientation => currentOrientation;
 
@@ -40,23 +46,42 @@ public class PlayerTest : MonoBehaviour
     bool isMoving = false;
     bool canMove = true;
 
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+        animator.SetFloat("Speed", speed);
         detector.GetComponentInChildren<Detector>();
-        inventory = GameManager.Instance.Inventory;
-        if (GameManager.Instance.PlayerPosition != Vector3.zero)
+        inventory = GameManager.Instance.SaveDataInstance.inventory;
+        if (GameManager.Instance.SaveDataInstance.playerPosition != Vector3.zero)
         {
-            currentOrientation = GameManager.Instance.CurrentOrientation;
-            transform.position = GameManager.Instance.PlayerPosition;
-            transform.rotation = GameManager.Instance.PlayerRotation;
+            currentOrientation = GameManager.Instance.SaveDataInstance.currentOrientation;
+            switch (currentOrientation)
+            {
+                case Orientation.NORTH:
+                    detector.transform.localPosition = new Vector2(0, -1);
+                    //northSprite;
+                    break;
+                case Orientation.EAST:
+                    detector.transform.localPosition = new Vector2(-1, 0);
+                    //eastSprite;
+                    break;
+                case Orientation.SOUTH:
+                    detector.transform.localPosition = new Vector2(0, 1);
+                    //southSprite;
+                    break;
+                case Orientation.WEST:
+                    detector.transform.localPosition = new Vector2(1, 0);
+                    //westSprite;
+                    break;
+            }
+            transform.position = GameManager.Instance.SaveDataInstance.playerPosition;
         }
         else
         {
-            GameManager.Instance.CurrentOrientation = currentOrientation;
-            GameManager.Instance.PlayerPosition = transform.position;
-            GameManager.Instance.PlayerRotation = transform.rotation;
-            GameManager.Instance.Inventory = inventory;
+            GameManager.Instance.SaveDataInstance.currentOrientation = currentOrientation;
+            GameManager.Instance.SaveDataInstance.playerPosition = transform.position;
         }
 
     }
@@ -78,36 +103,51 @@ public class PlayerTest : MonoBehaviour
                 if (input.x < 0)
                 {
                     currentOrientation = Orientation.WEST;
+                    detector.transform.localPosition = new Vector2(1, 0);
+                    animator.SetInteger("Orientation", 4);
                 }
                 if (input.x > 0)
                 {
                     currentOrientation = Orientation.EAST;
+                    detector.transform.localPosition = new Vector2(-1, 0);
+                    animator.SetInteger("Orientation", 2);
+
                 }
                 if (input.y < 0)
                 {
                     currentOrientation = Orientation.SOUTH;
+                    detector.transform.localPosition = new Vector2(0, 1);
+                    animator.SetInteger("Orientation", 3);
+
                 }
                 if (input.y > 0)
                 {
                     currentOrientation = Orientation.NORTH;
+                    detector.transform.localPosition = new Vector2(0, -1);
+                    animator.SetInteger("Orientation", 1);
+
                 }
 
                 switch (currentOrientation)
                 {
                     case Orientation.NORTH:
-                        detector.transform.localPosition = new Vector2(0, -1);
-                        //northSprite;
+                        
+
                         break;
                     case Orientation.EAST:
-                        detector.transform.localPosition = new Vector2(-1, 0);
+                        
+
                         //eastSprite;
                         break;
                     case Orientation.SOUTH:
-                        detector.transform.localPosition = new Vector2(0, 1);
+                        
+
                         //southSprite;
                         break;
                     case Orientation.WEST:
-                        detector.transform.localPosition = new Vector2(1, 0);
+                        
+
+
                         //westSprite;
                         break;
                 }
@@ -118,22 +158,28 @@ public class PlayerTest : MonoBehaviour
                 }
             }
 
-            if (Input.GetButtonDown("Interact"))
+        }
+
+
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (detector.DetectInteract())
             {
-                if (detector.DetectInteract())
-                {
-                    detector.DetectInteract().Interaction();
-                }
+                detector.DetectInteract().Interaction();
             }
         }
 
+        if (Input.GetButtonDown("Inventory"))
+        {
+            UIManager.Instance.InventoryDisplay(inventory);
+        }
 
         if (inventory.Contains("musicSheet1") && inventory.Contains("musicSheet2") && inventory.Contains("musicSheet3") && inventory.Contains("musicSheet4"))
         {
             Application.Quit();
         }
-        
-        
+
+
     }
 
     public bool SearchInInventory(string nameObject)
@@ -156,6 +202,8 @@ public class PlayerTest : MonoBehaviour
     public IEnumerator Move(Transform entity)
         {
         isMoving = true;
+
+            animator.SetBool("Move", isMoving);
         startPos = entity.position;
         time = 0;
 
@@ -167,17 +215,18 @@ public class PlayerTest : MonoBehaviour
             entity.position = Vector3.Lerp(startPos, endPos, time);
             yield return null;
         }
+        
 
         isMoving = false;
+            animator.SetBool("Move", isMoving);
         yield return 0;
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.CurrentOrientation = currentOrientation;
+        GameManager.Instance.SaveDataInstance.currentOrientation = currentOrientation;
         
-        GameManager.Instance.PlayerPosition = transform.position;
-        GameManager.Instance.PlayerRotation = transform.rotation;
-        GameManager.Instance.Inventory = inventory;
+        GameManager.Instance.SaveDataInstance.playerPosition = transform.position;
+        GameManager.Instance.SaveDataInstance.inventory = inventory;
     }
 }

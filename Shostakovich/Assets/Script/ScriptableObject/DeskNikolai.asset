@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: DeskNikolai
   m_EditorClassIdentifier: 
   dialog:
-  - Vous trouvez un morceau de la partition.
+  - Vous trouvez une lettre et la lisez.
+  - "\"Cher Nikola\xEF, J'ai trouv\xE9 dans une brocante une partie d'une partition."
+  - Conaissant ta passion pour la musique, je te l'envoie si joint. Fais en bonne
+    usage."
+  - "Vous vollez le morceau de partition \xE0 Nikola\xEF."
   alternativeDialog:
-  - Il n'y a plus rien.
+  - Il n'y a plus que le lettre sur le bureau.

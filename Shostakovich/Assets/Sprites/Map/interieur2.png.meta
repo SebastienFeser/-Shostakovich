@@ -30,6 +30,7 @@ TextureImporter:
     21300050: interieur2_20
     21300052: interieur2_19
     21300054: interieur2_24
+    21300056: interieur2_25
     2186277476908879412: ImportLogs
   externalObjects: {}
   serializedVersion: 7
@@ -630,6 +631,66 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 08725b1b77289854198ccff96bbd3017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interieur2_25
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 1530
+        width: 508
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae4914697d0af5498d4e1b374cb5669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interieur2_26
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 1532
+        width: 509
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: accb17a170f707e42b3a5b39351a1d0e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: interieur2_27
+      rect:
+        serializedVersion: 2
+        x: 2577
+        y: 1532
+        width: 509
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996ae3416be159341bbabd8cb28dda4e
       vertices: []
       indices: 
       edges: []

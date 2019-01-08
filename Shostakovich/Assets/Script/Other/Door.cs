@@ -73,4 +73,10 @@ public class Door : FixObject
             Dialog.ShowDialog();
         }
     }
+
+    void SaveData()
+    {
+
+
+    }
 }

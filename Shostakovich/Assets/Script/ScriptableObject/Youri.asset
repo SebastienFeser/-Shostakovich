@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Youri
   m_EditorClassIdentifier: 
   dialog:
-  - "Player : C'est une bonne situation, \xE7a, scribe ?"
-  - 'Youri : Mais, vous savez, moi je ne crois pas qu''il y ait de bonne ou de mauvaise
+  - Vous trouvez le journal de Youri.
+  - '" ... Mais, vous savez, moi je ne crois pas qu''il y ait de bonne ou de mauvaise
     situation. '
   - "Moi, si je devais r\xE9sumer ma vie aujourd'hui avec vous, je dirais que c'est
     d'abord des rencontres,"
@@ -37,6 +37,6 @@ MonoBehaviour:
     m\xE9canique,"
   - "mais demain, qui sait, peut-\xEAtre seulement \xE0 me mettre au service de la
     communaut\xE9, \xE0 faire le don, le don de soi..."
+  - "... Il y a une partition de Chostakovitch est dans la biblioth\xE8que de gauche."
   alternativeDialog:
-  - 'Player : Au fait vous avez un morceau de la valse de Chostokovitch?'
-  - "Youri : Oui, tiens le voil\xE0."
+  - 
